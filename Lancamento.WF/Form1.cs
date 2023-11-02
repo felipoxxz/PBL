@@ -19,7 +19,7 @@ namespace Lancamento.WF
 
             // Cria um novo gráfico
             Chart chart = new Chart();
-            chart.Size = new System.Drawing.Size(400, 300);
+            chart.Size = new System.Drawing.Size(1920, 1080);
 
             // Cria uma nova área de gráfico
             ChartArea chartArea1 = new ChartArea();
