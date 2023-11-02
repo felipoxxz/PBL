@@ -45,5 +45,19 @@ namespace Lancamento.WF
                 series.Points.AddXY(x, y); // Adiciona o ponto ao gráfico
             }
         }
+
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            // Obtenha a velocidade e o ângulo do usuário dos TextBox
+            if (double.TryParse(txtVelocidade.Text, out double velocidade) &&
+                double.TryParse(txtAngulo.Text, out double angulo))
+            {
+                MessageBox.Show(txtVelocidade.Text);
+            }
+            else
+            {
+                MessageBox.Show("Por favor, insira valores válidos para a velocidade e o ângulo.");
+            }
+        }
     }
 }

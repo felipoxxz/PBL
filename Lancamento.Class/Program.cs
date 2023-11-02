@@ -10,6 +10,14 @@ namespace Lancamento.Class
     {
         static void Main(string[] args)
         {
+            Usuario usuario = new Usuario();
+
+            //Obter velocidade
+            double velocidade = usuario.ObterVelocidadeLancamento();
+
+            //Obter ângulo
+            double angulo = usuario.ObterAnguloLancamento();
+
         }
     }
 }
