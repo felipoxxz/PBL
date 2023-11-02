@@ -35,23 +35,26 @@
             // 
             // txtVelocidade
             // 
-            this.txtVelocidade.Location = new System.Drawing.Point(656, 39);
+            this.txtVelocidade.Location = new System.Drawing.Point(1159, 132);
+            this.txtVelocidade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtVelocidade.Name = "txtVelocidade";
-            this.txtVelocidade.Size = new System.Drawing.Size(100, 26);
+            this.txtVelocidade.Size = new System.Drawing.Size(68, 20);
             this.txtVelocidade.TabIndex = 0;
             // 
             // txtAngulo
             // 
-            this.txtAngulo.Location = new System.Drawing.Point(656, 83);
+            this.txtAngulo.Location = new System.Drawing.Point(1159, 74);
+            this.txtAngulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAngulo.Name = "txtAngulo";
-            this.txtAngulo.Size = new System.Drawing.Size(100, 26);
+            this.txtAngulo.Size = new System.Drawing.Size(68, 20);
             this.txtAngulo.TabIndex = 1;
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(656, 152);
+            this.btnCalcular.Location = new System.Drawing.Point(1177, 210);
+            this.btnCalcular.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.Size = new System.Drawing.Size(75, 41);
+            this.btnCalcular.Size = new System.Drawing.Size(50, 27);
             this.btnCalcular.TabIndex = 2;
             this.btnCalcular.Text = "button1";
             this.btnCalcular.UseVisualStyleBackColor = true;
@@ -59,12 +62,13 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.btnCalcular);
             this.Controls.Add(this.txtAngulo);
             this.Controls.Add(this.txtVelocidade);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
