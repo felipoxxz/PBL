@@ -17,7 +17,7 @@ insert into Lancamentos (VelocidadeMeteoro, VelocidadeTiro, CodLancamento, Dista
 			values (@velocidadeMeteoro,@velocidadeTiro, @Codlancamento, @distancia, @altura, @angulo)
 END
 
---Store Procedure (SP) para Consultar LanÁamento existente
+--Store Procedure (SP) para Consultar Lan√ßamento existente
 CREATE OR ALTER PROCEDURE ConsultarLancamento
 (@angulo int)
 AS
@@ -25,17 +25,17 @@ if exists (select Angulo
 from Lancamentos
 where @angulo = Angulo)
 	begin
-		print ('Valor para o Angulo:' + cast(@angulo as varchar) + 'J· est· cadastrado!')
+		print ('Valor para o Angulo:' + cast(@angulo as varchar) + 'J√° est√° cadastrado!')
 		select *
 		from Lancamentos
 		where @angulo = Angulo
 	end
 else
 	begin
-		print('Valor n„o cadastrado no Banco de Dados!')
+		print('Valor n√£o cadastrado no Banco de Dados!')
 	end
 
---Store Procedure (SP) para RemoverLanÁamento existente
+--Store Procedure (SP) para RemoverLan√ßamento existente
 CREATE OR ALTER PROCEDURE RemoverLancamento
 (@angulo int)
 as
