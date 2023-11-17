@@ -3,7 +3,7 @@ Create database LancamentoBalistico
 --Informando que utilizaremos o BD 'Lancamento Balistico' 
 use LancamentoBalistico
 GO
---Criando a tabela Lancamentos para armazenar as informações dos lancamentos
+--Criando a tabela Lancamentos para armazenar as informaÃ§Ãµes dos lancamentos
 create table Lancamentos
 (
 CodLancamento int primary key,
