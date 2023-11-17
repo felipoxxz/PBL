@@ -5,7 +5,7 @@ as
 IF (SELECT COUNT(*)
 	FROM inserted) = 1
 	begin
-		PRINT('Lançamento inserido com sucesso!')
+		PRINT('LanÃ§amento inserido com sucesso!')
 	end
 --Trigger para deletar lancamento
 CREATE OR ALTER TRIGGER trg_deleteLancamento on colisao
@@ -13,7 +13,7 @@ for delete
 as
 	if (select count(*)
 	from deleted ) >= 1
-		print('Lançamento Removido!')
+		print('LanÃ§amento Removido!')
 
 --Trigger para atualizar lancamento
 Create or alter trigger trg_updateLancamento on colisao
