@@ -13,12 +13,12 @@ IF (SELECT COUNT(*)
 	else if(SELECT COUNT(*)
 			FROM inserted) >= 1
 begin
-		PRINT('Colisão inserido com sucesso!')
+		PRINT('ColisÃ£o inserido com sucesso!')
 end
 else if (select count(*)
 		from deleted ) >= 1
 	begin
-			print('Lançamento Removido !')
+			print('LanÃ§amento Removido !')
 	end
 
 
@@ -39,12 +39,12 @@ IF (SELECT COUNT(*)
 	else if(SELECT COUNT(*)
 			FROM inserted) >= 1
 begin
-		PRINT('Colisão inserido com sucesso!')
+		PRINT('ColisÃ£o inserido com sucesso!')
 end
 else if (select count(*)
 		from deleted ) >= 1
 	begin
-			print('Lançamento Removido !')
+			print('LanÃ§amento Removido !')
 	end
 
 
@@ -63,46 +63,12 @@ IF (SELECT COUNT(*)
 	else if(SELECT COUNT(*)
 			FROM inserted) >= 1
 begin
-		PRINT('Colisão inserido com sucesso!')
+		PRINT('ColisÃ£o inserido com sucesso!')
 end
 else if (select count(*)
 		from deleted ) >= 1
 	begin
-			print('Lançamento Removido !')
+			print('LanÃ§amento Removido !')
 	end
 
 
-
-
-
-
-
-	---------------------------
-
-	IF (SELECT COUNT(*)
-	FROM inserted) >= 1 AND (select count(*)
-	from deleted) <> 0
-	begin
-		print('Os seguintes dados foram modificados')
-		declare @codColisao int
-		declare @alturaColisao decimal
-		declare @distanciaColisao decimal
-		set @codColisao = (select CodColisao from deleted)
-		set @alturaColisao = (select alturaColisao from deleted)
-		set @distanciaColisao = (select distanciaColisao from deleted)
-
-		print ('CodColisao: ' + cast(@codcolisao as varchar) + 'º Já está cadastrado!')
-
-
-		select * from inserted
-	end
-	else if(SELECT COUNT(*)
-			FROM inserted) >= 1
-begin
-		PRINT('Colisão inserido com sucesso!')
-end
-else if (select count(*)
-		from deleted ) >= 1
-	begin
-			print('Lançamento Removido !')
-	end
