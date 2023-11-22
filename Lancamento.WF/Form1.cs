@@ -15,12 +15,11 @@ namespace Lancamento.WF
     public partial class Form1 : Form
     {
         private double tempo; // Incremento de tempo para a animação
-        private double velocidadeProjetil = 300; // Velocidade inicial em m/s
-        private double velocidadeAlvo = -50;
+        private double velocidadeAlvo = -10;
         private double anguloLancamento; // Ângulo de lançamento em graus
         private double projetilX, projetilY; // Posição do projétil no gráfico
         private double alvoX, alvoY; // Posição inicial do alvo em X
-
+        private double velocidadeProjetil = 60;
         public Form1()
         {
             InitializeComponent();
@@ -39,10 +38,10 @@ namespace Lancamento.WF
             chart1.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.NotSet;
 
             // Configura a ChartArea para ser fixa
-            chart1.ChartAreas[0].AxisX.Minimum = 0; // Ajuste conforme necessário
-            chart1.ChartAreas[0].AxisX.Maximum = 2000;  // Ajuste conforme necessário
+            chart1.ChartAreas[0].AxisX.Minimum = 0;
+            chart1.ChartAreas[0].AxisX.Maximum = 300; 
             chart1.ChartAreas[0].AxisY.Minimum = 0;
-            chart1.ChartAreas[0].AxisY.Maximum = 4000; // Ajuste conforme necessário
+            chart1.ChartAreas[0].AxisY.Maximum = 1000; 
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)
@@ -54,8 +53,8 @@ namespace Lancamento.WF
             tempo = 0;
             projetilX = 0;
             projetilY = 0;
-            alvoX = 1000;
-            alvoY = 4000;
+            alvoX = 20;
+            alvoY = 60;
 
             // Lê o ângulo de lançamento do TextBox
             if (double.TryParse(Angulo.Text, out anguloLancamento))
@@ -76,11 +75,12 @@ namespace Lancamento.WF
             // Limpa os pontos antigos do projétil
             chart1.Series["Projectile"].Points.Clear();
 
-            //velocidadeProjetil = (-(alvoX * velocidadeAlvo) / Math.Cos(radianos) + Math.Sqrt((alvoX * velocidadeAlvo) / Math.Cos(radianos) - 4.0 * (alvoX * Math.Tan(radianos) - alvoY) * (-4.9 * Math.Pow(alvoX, 2)) / Math.Pow(Math.Cos(radianos), 2))) / 2 * (alvoX * Math.Tan(radianos) - alvoY);
-
             // Cálculo do Seno e Cosseno do ângulo
             double cos = CalculoAvancado.Cos(anguloLancamento);
             double sen = CalculoAvancado.Sen(anguloLancamento);
+
+            // Velocidade Inicial do lançamento
+            //double velocidadeProjetil = Fisica.VelocidadeInicial(anguloLancamento);
 
             // Equações de movimento oblíquo
             double x = Fisica.PosicaoProjetilX(velocidadeProjetil, cos, tempo);

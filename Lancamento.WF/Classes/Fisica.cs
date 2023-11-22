@@ -30,5 +30,45 @@ namespace Lancamento.WF.Classes
             alvoY += (velocidadeAlvo / 10);
             return alvoY;
         }
+        public static double VelocidadeInicial(double angulo)
+        {
+            double a, b, c, delta, velocidadeInicialDeltaNegativo, velocidadeInicialDeltaPositivo;
+            double tempo_delta_n, tempo_delta_p, altura_impacto_delta_n, altura_impacto_delta_p;
+            double distancia = 20;
+            double altura = 60;
+            double velocidadeAlvo = 10;
+
+            // Cálculo da velocidade
+            a = distancia * (CalculoAvancado.Sen(angulo) / CalculoAvancado.Cos(angulo)) - altura;
+            b = (distancia * velocidadeAlvo) / CalculoAvancado.Cos(angulo);
+            c = (-4.9 * Math.Pow(distancia, 2)) / Math.Pow(CalculoAvancado.Cos(angulo),2);
+
+            delta = Math.Pow(b, 2) - (4 * a * c);
+
+            velocidadeInicialDeltaPositivo = -1.0 * b + Math.Sqrt(delta) / (2.0 * a);
+            velocidadeInicialDeltaNegativo = (-1.0 * b - Math.Sqrt(delta)) / (2.0 * a);
+
+            // TEMPO
+            tempo_delta_n = distancia / (velocidadeInicialDeltaNegativo * CalculoAvancado.Cos(angulo));
+            tempo_delta_p = distancia / (velocidadeInicialDeltaPositivo * CalculoAvancado.Cos(angulo));
+
+            // ALTURA
+            altura_impacto_delta_n = altura + velocidadeAlvo * tempo_delta_n;
+            altura_impacto_delta_p = altura + velocidadeAlvo * tempo_delta_p;
+
+            // FILTROS
+            if (tempo_delta_p > 0 && altura_impacto_delta_p > 0)
+            {
+                return velocidadeInicialDeltaPositivo;
+            }
+            else if (tempo_delta_n > 0 && altura_impacto_delta_n > 0)
+            {
+                return velocidadeInicialDeltaNegativo;
+            }
+            else
+            {
+                return 0;
+            }
+        }
     }
 }
