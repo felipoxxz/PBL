@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lancamento.WF
 {
-    internal class CalculoAvancado
+    public class CalculoAvancado
     {
         // Cálcula o Cosseno do ângulo
         public static double Cos(double angulo, double precisaoDesejada = 1e-20)
