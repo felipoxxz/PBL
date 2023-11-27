@@ -100,12 +100,12 @@ namespace Lancamento.WF
                 if(Fisica.VerificarAcerto(x, velocidadeProjetil, anguloLancamento))
                 {
                     ((Timer)sender).Stop();
-                    MessageBox.Show($"Projétil acertou o alvo! \nLevaram {frames:F1} segundos! \nO alvo foi atingido na subida do lançamento! \nA velocidade do projétil foi de {velocidadeProjetil:F1}m/s!");
+                    MessageBox.Show($"Projétil acertou o alvo! \nLevaram {frames:F1} segundos! \nO meteoro foi atingido em {altura:F1} metros acima do solo \nO meteoro foi atingido na subida do lançamento! \nA velocidade do projétil foi de {velocidadeProjetil:F1}m/s!");
                 }
                 else
                 {
                     ((Timer)sender).Stop();
-                    MessageBox.Show($"Projétil acertou o alvo! \nLevou {frames:F1} segundos! \nO alvo foi atingido na descida do lançamento! \nA velocidade do projétil foi de {velocidadeProjetil:F1}m/s!");
+                    MessageBox.Show($"Projétil acertou o alvo! \nLevaram {frames:F1} segundos! \nO meteoro foi atingido em {altura:F1} metros acima do solo \nO meteoro foi atingido na descida do lançamento! \nA velocidade do projétil foi de {velocidadeProjetil:F1}m/s!");
                 }
             }
         }
