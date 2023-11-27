@@ -76,7 +76,7 @@ namespace Lancamento.WF
             return fatorial;
         }
 
-        // Converte o ângulo degraus para radianos
+        // Converte o ângulo de graus para radianos
         public static double ConverteAngulo(double AnguloEmGraus) // Função que converte Angulo de Graus para Radianos
         {
             double AnguloEmRad = AnguloEmGraus * Math.PI / 180;
