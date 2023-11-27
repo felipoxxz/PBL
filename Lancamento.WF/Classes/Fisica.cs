@@ -37,6 +37,8 @@ namespace Lancamento.WF.Classes
             double altura = alvoY - (velocidadeAlvo * tempo);
             return altura; 
         }
+
+        // Cálcula a velocidade do projétil
         public static double VelocidadeInicial(double angulo)
         {
             double a, b, c, delta, velocidadeInicialDeltaNegativo, velocidadeInicialDeltaPositivo;
@@ -62,7 +64,7 @@ namespace Lancamento.WF.Classes
             alturaImpactoDeltaN = altura + velocidadeAlvo * tempoDeltaN;
             alturaImpactoDeltaP = altura + velocidadeAlvo * tempoDeltaP;
 
-            // Filtros
+            // Verifica se a velocidade calculada a real, a partir do tempo, altura e velocidade.
             if (tempoDeltaP > 0 && alturaImpactoDeltaP > 0 && velocidadeInicialDeltaPositivo > 0) 
             {
                 return velocidadeInicialDeltaPositivo;
@@ -89,6 +91,19 @@ namespace Lancamento.WF.Classes
             }
             else
             {
+                return false;
+            }
+        }
+
+        // Verifica se o ângulo de lançamento é possível para acertar o alvo
+        public static Boolean VerificarAngulo(double angulo)
+        {
+            if(angulo < 76 || angulo > 88)
+            {
+                return true;
+            }
+            else 
+            { 
                 return false;
             }
         }

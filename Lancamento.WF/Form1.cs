@@ -49,8 +49,16 @@ namespace Lancamento.WF
             }
         }
 
+        // Atualiza a posição do Projétil e do Meteoro
         private void AtualizarPosicao(object sender, EventArgs e)
         {
+            // Verifica se é possível o lançamento com o ângulo fornecido
+            if (Fisica.VerificarAngulo(anguloLancamento))
+            {
+                ((Timer)sender).Stop();
+                MessageBox.Show($"Ângulo inválido! Para existir valores possíveis para o teste \nforneça um ângulo entre 76 e 88 graus.");
+            }
+
             // Limpa os pontos antigos do projétil
             chart1.Series["Projétil"].Points.Clear();
 
@@ -83,17 +91,16 @@ namespace Lancamento.WF
             if (y < 0 || x < 0)
             {
                 ((Timer)sender).Stop();
-                MessageBox.Show($"Ângulo inválido! \nFornceça outro valor.");
             }
 
             // Verifica se a distância entre o projétil e o alvo é pequena o suficiente para considerar como acerto
-            if (Math.Abs(x - distancia) <= 40 && Math.Abs(y - altura) <= 40)
+            if (Math.Abs(x - distancia) <= 35 && Math.Abs(y - altura) <= 35)
             {
                 // Verifica se o alvo foi atingido na subida ou na descida do lançamento
                 if(Fisica.VerificarAcerto(x, velocidadeProjetil, anguloLancamento))
                 {
                     ((Timer)sender).Stop();
-                    MessageBox.Show($"Projétil acertou o alvo! \nLevou {frames:F1} segundos! \nO alvo foi atingido na subida do lançamento! \nA velocidade do projétil foi de {velocidadeProjetil:F1}m/s!");
+                    MessageBox.Show($"Projétil acertou o alvo! \nLevaram {frames:F1} segundos! \nO alvo foi atingido na subida do lançamento! \nA velocidade do projétil foi de {velocidadeProjetil:F1}m/s!");
                 }
                 else
                 {
@@ -141,6 +148,7 @@ namespace Lancamento.WF
             chart1.ChartAreas[0].AxisX.TitleFont = new Font("Arial", 15);
             chart1.ChartAreas[0].AxisY.TitleFont = new Font("Arial", 15);
 
+            // Configurar propriedades de estilo do projétil e meteoro
             chart1.Series["Projétil"].ChartType = SeriesChartType.Line;
             chart1.Series["Projétil"].Color = Color.Blue;
             chart1.Series["Projétil"].BorderWidth = 2;
@@ -149,13 +157,14 @@ namespace Lancamento.WF
 
             chart1.Series["Meteoro"].ChartType = SeriesChartType.Point;
             chart1.Series["Meteoro"].Color = Color.Red;
-            chart1.Series["Meteoro"].MarkerSize = 30;
+            chart1.Series["Meteoro"].MarkerSize = 25;
             chart1.Series["Meteoro"].MarkerStyle = MarkerStyle.Circle;
 
             // Adicionar grade leve
             chart1.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
             chart1.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
 
+            // Remove legendas desnecessárias
             RemoverLegendasIndesejadas();
         }
 
